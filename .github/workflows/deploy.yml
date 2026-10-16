@@ -9,9 +9,15 @@ jobs:
   build-and-deploy:
     runs-on: self-hosted
 
-    steps:
+  steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+
+      # ADD THIS STEP HERE
+      - name: Install unzip
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y unzip
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
